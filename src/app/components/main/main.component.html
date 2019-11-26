@@ -1,1 +1,9 @@
-<p>main works!</p>
+<div *ngFor="let category of categories; let i = index" style="margin: 30px; border: 1px solid black; padding: 15px">
+  {{ category.name }}
+  <button (click)="categoryClicked(i)">Get Products</button>
+</div>
+
+<div style="margin: 30px; border: 1px solid black; padding: 15px">
+  <p>Products selected: </p>
+  <p *ngFor="let item of items">{{ item.name }}</p>
+</div>
