@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCWDh_CwYCdHdkypxNqW1dboKJ1zsXVjwQ',
+    authDomain: 'ionic-nfc-order.firebaseapp.com',
+    databaseURL: 'https://ionic-nfc-order.firebaseio.com',
+    projectId: 'ionic-nfc-order',
+    storageBucket: 'ionic-nfc-order.appspot.com',
+    messagingSenderId: '799341208018',
+    appId: '1:799341208018:web:cc2ce665234fe2c689280b'
+  }
 };
 
 /*
