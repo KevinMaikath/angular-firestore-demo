@@ -24,10 +24,10 @@ export class MainComponent implements OnInit {
       .then(() => {
         this.categories = this.db.getCategories();
       });
+
   }
 
   categoryClicked(index) {
-    this.db.resetProducts();
     this.db.loadProducts(this.categories[index].items)
       .then(() => {
         this.items = this.db.getProducts();

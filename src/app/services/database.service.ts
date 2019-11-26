@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreDocument, DocumentReference} from '@angular/fire/firestore';
 import {Category} from '../models/category';
 import {Product} from '../models/product';
 
@@ -39,18 +39,24 @@ export class DatabaseService {
     return this.categories;
   }
 
-  loadProducts(productRefArray) {
+  loadProducts(productRefArray: DocumentReference[]) {
+    this.resetProducts();
     return new Promise<void>((resolve, reject) => {
+      // for (const productRef of productRefArray) {
+      //   this.firebase.doc(productRef)
+      //     .get()
+      //     .subscribe(doc => {
+      //       const product = doc.data() as Product;
+      //       this.products.push(product);
+      //     });
+      // }
 
-      for (const productRef of productRefArray) {
-        this.firebase.doc(productRef)
-          .get()
-          .subscribe(doc => {
-            const product = doc.data() as Product;
-            this.products.push(product);
+      for (const product of productRefArray) {
+        product.get()
+          .then(doc => {
+            this.products.push(doc.data() as Product);
           });
       }
-
       resolve();
     });
   }
