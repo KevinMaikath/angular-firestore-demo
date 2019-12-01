@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   constructor(private db: DatabaseService) {
   }
 
+  // Comentario tonto
   ngOnInit() {
     this.categories = [];
     this.items = [];
